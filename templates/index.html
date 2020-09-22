@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include "segments/meta.html" %}
+  </head>
+  <body>
+    <div class="App">
+      <div class="app__center">
+        {% include "segments/header.html" %}
+        <div class="app__body">
+          <div class="app__home">
+            <div>
+              <div class="app__home-welcome">
+                Welcome back, your todolist is
+              </div>
+              <div class="app__home-percentage">
+                {{ details.percentage }} %
+                <span class="relatively-smaller">
+                  <span class="material-icons">fingerprint</span>done
+                </span>
+              </div>
+              <div>
+                {{ details.doneEntries }} tasks done - {{ details.leftEntries }}
+                left
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

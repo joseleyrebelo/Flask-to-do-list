@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include "segments/meta.html" %}
+  </head>
+  <body>
+    <div class="App">
+      <div class="app__center">
+        {% include "segments/header.html" %}
+        <div class="app__body">
+          <div class="app__show-control__outer">
+            <div class="app__show-control">
+              <span class="app__show-control-text"> Hide Done </span>
+              <span class="material-icons">remove_red_eye</span>
+            </div>
+          </div>
+          <div class="todo__list show-done">
+            {% for row in todos %}
+            <div
+              class="todo__entry  {{ 'done' if row.done }}"
+              todo_entry="{{ row._id }}"
+            >
+              <span class="todo__entry-tick" target_id="{{ row._id }}">
+                <span class="material-icons">check</span>
+              </span>
+              <div class="todo__entry-text">{{ row.task }}</div>
+              <div class="todo__entry-actions">
+                <span
+                  target_id="{{ row._id }}"
+                  class="material-icons todo__entry-delete-control"
+                  >remove
+                </span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <form id="todo__add" class="todo__main">
+            <input class="todo__main-task" type="text" />
+            <button class="todo__main-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
